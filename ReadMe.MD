@@ -47,17 +47,22 @@ i.e. if the primary db is db.r5.2xlarge then use this in the read replica as wel
    - WriteLatency
    - WriteIOPS
 
+
+### Code
+
+1. To create a RDS using terraform -> [rds.tf](terraform-code/launch-rds/rds.tf)  (6*)
+
 ### References
 
-1. https://docs.aws.amazon.com/prescriptive-guidance/latest/dr-standard-edition-amazon-rds/sites-strategies.html
+1* https://docs.aws.amazon.com/prescriptive-guidance/latest/dr-standard-edition-amazon-rds/sites-strategies.html
 
-2. [RDS Setting Up Database Disaster Recovery | RDS Multi AZ | RDS Read Replica | RDS Copy Snapshots - Java Home Cloud](https://www.youtube.com/watch?v=fPMAmCBNdJ8)
+2* [RDS Setting Up Database Disaster Recovery | RDS Multi AZ | RDS Read Replica | RDS Copy Snapshots - Java Home Cloud](https://www.youtube.com/watch?v=fPMAmCBNdJ8)
 
-3. https://d1.awsstatic.com/rdsImages/IG1_RDS1_AvailabilityDurability_Final.pdf
+3* https://d1.awsstatic.com/rdsImages/IG1_RDS1_AvailabilityDurability_Final.pdf
 
-4. [“Multi-AZ” in Amazon RDS and how it may differ from High Availability - Franck Pachot](https://dev.to/aws-heroes/multi-az-in-amazon-rds-and-how-it-differs-from-high-availability-gn9)
+4* [“Multi-AZ” in Amazon RDS and how it may differ from High Availability - Franck Pachot](https://dev.to/aws-heroes/multi-az-in-amazon-rds-and-how-it-differs-from-high-availability-gn9)
 
-5. * [Designing a DR strategy on Amazon RDS for SQL Server](https://www.youtube.com/watch?v=GxUZHmtlHew&t=17s)
+5* [Designing a DR strategy on Amazon RDS for SQL Server](https://www.youtube.com/watch?v=GxUZHmtlHew&t=17s)
 
 
-6. https://github.com/azeezsalu/terraform-tutorial-reference-files/blob/main/rds-refference.tf
+6* https://github.com/azeezsalu/terraform-tutorial-reference-files/blob/main/rds-refference.tf
