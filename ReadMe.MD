@@ -31,6 +31,10 @@ There are two options to recover the DB:
       - When you promote Read Replica, it breaks the relationship between the primary DB and the secondary.
     - Because of the asyncronization replication, we will not loose any data.
 
+##### Disaster Recovery Strategies
+
+![disaster-recovery-strategies](disaster-recovery-strategies.png)
+Resource: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
 
 ### Best Practices
 
@@ -47,10 +51,14 @@ i.e. if the primary db is db.r5.2xlarge then use this in the read replica as wel
    - WriteLatency
    - WriteIOPS
 
+3- It is recommended you use a different account per Region to provide the highest level of resource and security isolation (in the case compromised credentials are part of your disaster recovery plans as well). (7*)
+
 
 ### Code
 
 1. To create a RDS using terraform -> [rds.tf](terraform-code/launch-rds/rds.tf)  (6*)
+
+2. To implement multi-region data replication for disaster recovery with AWS RDS and DMS with Terraform -> [rds-dr.tf](terraform-code/multi-region-dr/rds-dr.tf) (9*)
 
 ### References
 
@@ -66,3 +74,9 @@ i.e. if the primary db is db.r5.2xlarge then use this in the read replica as wel
 
 
 6* https://github.com/azeezsalu/terraform-tutorial-reference-files/blob/main/rds-refference.tf
+
+7* https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html#warm-standby
+
+8* [AWS Disaster Recovery Strategies – PoC with Terraform - Martin Perez Rodriguez](https://xebia.com/blog/aws-disaster-recovery-strategies-poc-with-terraform/)
+
+9* [Implementing multi-region data replication for disaster recovery with AWS RDS and DMS with Terraform](https://www.pulumi.com/ai/answers/1cuRcVri6sdq8PqQtjT2Yj/disaster-recovery-on-aws-with-rds-and-dms)
