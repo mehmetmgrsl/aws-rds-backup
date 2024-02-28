@@ -28,9 +28,24 @@ There are two options to recover the DB:
   - In case the RDS fails in Region-1:
     - Application needs to use the RDS endpoints that connect to Read Replica
     - We need to promote Read Replica to Master DB to accept  instert/delete all requests.
+      - When you promote Read Replica, it breaks the relationship between the primary DB and the secondary.
     - Because of the asyncronization replication, we will not loose any data.
 
 
+### Best Practices
+
+1- When creating a read replica, try to keep the same instance class and storage class as your primary database so that it becomes easier for you to manage. (5*)
+
+i.e. if the primary db is db.r5.2xlarge then use this in the read replica as well.
+
+2- On CloudWatch, it is important to monitor the following metrics: (5*)
+   
+   - ReplicaLag
+   - NetworkTransmitThroughput
+   - NetworkReceiveThroughput
+   - WriteThroughput
+   - WriteLatency
+   - WriteIOPS
 
 ### References
 
@@ -41,3 +56,8 @@ There are two options to recover the DB:
 3. https://d1.awsstatic.com/rdsImages/IG1_RDS1_AvailabilityDurability_Final.pdf
 
 4. [“Multi-AZ” in Amazon RDS and how it may differ from High Availability - Franck Pachot](https://dev.to/aws-heroes/multi-az-in-amazon-rds-and-how-it-differs-from-high-availability-gn9)
+
+5. * [Designing a DR strategy on Amazon RDS for SQL Server](https://www.youtube.com/watch?v=GxUZHmtlHew&t=17s)
+
+
+6. https://github.com/azeezsalu/terraform-tutorial-reference-files/blob/main/rds-refference.tf
